@@ -1,0 +1,33 @@
+版本号		更新日期	开发者		电子邮箱
+		更新内容
+------------------------------------------------------------------------------
+2.0.7		2015-05-16	calvin		calvinwilliams@163.com
+		* makefile和makefile.*可以同时存在在一个目录里了
+
+2.0.6		2014-07-02	calvin		calvinwilliams.c@gmail.com
+		* 补充了.fmd文件的内容
+		* 新增SQL类型的内容
+
+2.0.5		2014-02-05	calvin		calvinwilliams.c@gmail.com
+		* 新增CC优化选项
+		* 新增sml2c源类型
+
+2.0.4		2014-01-05	calvin		calvinwilliams.c@gmail.com
+		* 解决了makeobj.sh的一个多源文件输入的格式问题
+		* 新增sml2c文件类型推导规则
+
+2.0.3		2013-11-09	calvin		calvinwilliams.c@gmail.com
+		* Linux编译选项-fPIC从链接移到编译阶段
+		* 去掉了IFS设置值，现在设置成空
+
+2.0.2		2013-09-28	calvin		calvinwilliams.c@gmail.com
+		* 优化了makelocal.sh使得生成独立makefile更小更快
+
+2.0.1		2013-09-15	calvin		calvinwilliams.c@gmail.com
+		* 增加WINDOWS-MinGW支持
+
+2.0.0		2013-09-06	calvin		calvinwilliams.c@gmail.com
+		* 第二版
+
+1.0.0		2004-??-??	calvin		calvinwilliams.c@gmail.com
+		* 第一版

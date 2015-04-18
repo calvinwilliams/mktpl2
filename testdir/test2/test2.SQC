@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+EXEC SQL INCLUDE SQLCA;
+EXEC SQL BEGIN DECLARE SECTION;
+	char	DBUSER[ 64 + 1 ] ;
+	char	DBPASS[ 64 + 1 ] ;
+EXEC SQL END DECLARE SECTION;
+
+int test()
+{
+	strcpy( DBUSER , "hzbsbdb" );
+	strcpy( DBPASS , "hzbsbdb" );
+	
+	EXEC SQL
+		CONNECT :DBUSER IDENTIFIED BY :DBPASS ;
+	if( sqlca.sqlcode )
+	{
+		printf( "connect to database failed[%d]\n" , sqlca.sqlcode );
+		return -1;
+	}
+	else
+	{
+		printf( "connect to database successful\n" );
+	}
+
+	return 0;
+}
+
+int main()
+{
+	return -test();
+}
+

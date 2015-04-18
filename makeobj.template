@@ -1,0 +1,47 @@
+############################################################
+# 项目名 : 
+# 模块名 : 
+# 备  注 : 
+############################################################
+
+###### 源文件配置区
+c_FILE		=
+cpp_FILE	=
+csm_FILE	=
+c_html_FILE	=
+cui_FILE	=
+dtd_FILE	=
+prt_FILE	=
+fmd_FILE	=
+smd_FILE	=
+SQC_FILE	=
+def_FILE	=
+act_FILE	=
+
+###### 目标文件、安装目录配置区
+BIN		=
+BININST		=
+LIB		=
+LIBINST		=
+HDER		=
+HDERINST	=
+DFTHDERINST	=
+OBJ		=
+OBJINST		=
+NOCLEAN_OBJ	=
+NOCLEAN_OBJINST	=
+NOINST_OBJ	=
+
+###### 编译选项
+CFLAGS		=	-I. \
+
+###### 链接选项
+LFLAGS		=	-L. \
+
+###### 额外宏定义区
+CLEAN_ADDITION	=
+
+###### 加载mktpl模板库
+include $(MKTPLDIR)/makeobj_$(MKTPLOS).inc
+
+###### 目标文件依赖关系
