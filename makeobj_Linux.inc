@@ -94,10 +94,10 @@ SQC_FILE_CLEAN	=	$(SQC_FILE_sqec) $(SQC_FILE_c) $(SQC_FILE_o)
 # ECP		=	proc
 ECP		=	ecpg
 
-ec_FILE_sqec	=	$(ec_FILE:.ec=.sqec)
+ec_FILE_ecE	=	$(ec_FILE:.ec=.ecE)
 ec_FILE_c	=	$(ec_FILE:.ec=.c)
 ec_FILE_o	=	$(ec_FILE:.ec=.o)
-ec_FILE_CLEAN	=	$(ec_FILE_sqec) $(ec_FILE_c) $(ec_FILE_o)
+ec_FILE_CLEAN	=	$(ec_FILE_ecE) $(ec_FILE_c) $(ec_FILE_o)
 
 .SUFFIXES:.ec
 .ec.o	:
