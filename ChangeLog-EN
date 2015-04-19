@@ -1,3 +1,6 @@
+v2.0.6		2015-05-24	calvin		calvinwilliams@163.com
+		* Modify rule of .ec on Linux
+
 v2.0.7		2015-05-16	calvin		calvinwilliams@163.com
 		* makefile and makefile.* existed in same folder
 
