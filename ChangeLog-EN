@@ -1,5 +1,6 @@
 v2.0.7		2015-05-16	calvin		calvinwilliams@163.com
-		* makefile and makefile.* existed in same folder
+		* Makefile and makefile.* existed in same folder
+		* Completed rule of .ec files
 
 v1.0.0		2004-??-??	calvin		calvinwilliams.c@gmail.com
 		* Published the first version

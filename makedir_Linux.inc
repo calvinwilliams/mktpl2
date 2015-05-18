@@ -65,7 +65,6 @@ clean	:
 # installπÊ‘Ú
 .PHONY:install
 install	:
-	echo $(MAKE)
 	@for i in $(DIROBJS) ; do \
 		if [ -d "$$i" ] ; then \
 			if [ -f "$$i/makefile$(MAKEFILE_POSTFIX)" ] ; then \

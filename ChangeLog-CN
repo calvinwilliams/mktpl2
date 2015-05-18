@@ -3,6 +3,7 @@
 ------------------------------------------------------------------------------
 2.0.7		2015-05-16	calvin		calvinwilliams@163.com
 		* makefile和makefile.*可以同时存在在一个目录里了
+		* 补全了.ec处理规则
 
 2.0.6		2014-07-02	calvin		calvinwilliams.c@gmail.com
 		* 补充了.fmd文件的内容

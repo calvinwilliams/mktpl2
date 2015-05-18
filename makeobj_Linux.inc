@@ -94,15 +94,17 @@ SQC_FILE_CLEAN	=	$(SQC_FILE_sqec) $(SQC_FILE_c) $(SQC_FILE_o)
 # ECP		=	proc
 ECP		=	ecpg
 
-ec_FILE_sqec	=	$(ec_FILE:.ec=.sqec)
+ec_FILE_ecE	=	$(ec_FILE:.ec=.ecE)
 ec_FILE_c	=	$(ec_FILE:.ec=.c)
 ec_FILE_o	=	$(ec_FILE:.ec=.o)
-ec_FILE_CLEAN	=	$(ec_FILE_sqec) $(ec_FILE_c) $(ec_FILE_o)
+ec_FILE_CLEAN	=	$(ec_FILE_ecE) $(ec_FILE_c) $(ec_FILE_o)
 
 .SUFFIXES:.ec
-.ec.c	:
-	$(CC) -E $(CFLAGS) -x c $*.ec > $*.sqec
-	$(ECP) $*.sqec
+.ec.o	:
+	$(CC) -E -x c $(CFLAGS) $*.ec > $*.ecE
+	$(ECP) -h $*.ecE -o $*.c
+	sed -i 's/NULL/0/g' $*.c
+	$(CC) -c $*.c
 #- ec_FILE
 
 #+ csm_FILE
@@ -324,7 +326,7 @@ sml2c_FILE_DFTHDER	=	$(sml2c_FILE_h) $(sml2c_FILE_SSDSTRUCT_h) $(sml2c_FILE_SSDL
 #+ make_clean
 #@ FILESYSTEM
 # 预定义源文件清理删除关联宏
-_FILE_CLEAN	=	$(c_FILE_CLEAN) $(cpp_FILE_CLEAN) $(SQC_FILE_CLEAN) $(csm_FILE_CLEAN) $(c_html_FILE_CLEAN) $(cui_FILE_CLEAN) $(dtd_FILE_CLEAN) $(prt_FILE_CLEAN) $(fmd_FILE_CLEAN) $(smd_FILE_CLEAN) $(def_FILE_CLEAN) $(act_FILE_CLEAN) $(sml2c_FILE_CLEAN)
+_FILE_CLEAN	=	$(c_FILE_CLEAN) $(cpp_FILE_CLEAN) $(SQC_FILE_CLEAN) $(ec_FILE_CLEAN) $(csm_FILE_CLEAN) $(c_html_FILE_CLEAN) $(cui_FILE_CLEAN) $(dtd_FILE_CLEAN) $(prt_FILE_CLEAN) $(fmd_FILE_CLEAN) $(smd_FILE_CLEAN) $(def_FILE_CLEAN) $(act_FILE_CLEAN) $(sml2c_FILE_CLEAN)
 
 # 清理删除规则
 .PHONY:clean
