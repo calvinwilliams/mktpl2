@@ -20,6 +20,10 @@ if [ -f makefile ] ; then
 	echo "makefile已存在"
 	exit 0
 fi
+if [ -f makeinstall ] ; then
+	echo "makeinstall已存在"
+	exit 0
+fi
 
 printf "# 此文件由makeobj.sh自动生成\n" > makefile
 
@@ -69,7 +73,7 @@ while read -r LINE ; do
 	elif [ x"$FIELD1" = x"BININST" ] ; then
 		if [ x"$TARGET" != "" ] ; then
 			if [ x"$TARGET_EXT" = x"" ] ; then
-				printf "BININST		=	\$(HOME)/bin\n"
+				printf "BININST		=	\$(_BININST)\n"
 				_INST="${_INST}#@ make_install_BININST\n"
 				_UNINST="${_UNINST}#@ make_uninstall_BININST\n"
 			fi
@@ -85,7 +89,7 @@ while read -r LINE ; do
 	elif [ x"$FIELD1" = x"LIBINST" ] ; then
 		if [ x"$TARGET" != "" ] ; then
 			if [ x"$TARGET_EXT" = x"a" -o x"$TARGET_EXT" = x"so" ] ; then
-				printf "LIBINST		=	\$(HOME)/lib\n"
+				printf "LIBINST		=	\$(_LIBINST)\n"
 				_INST="${_INST}#@ make_install_LIBINST\n"
 				_UNINST="${_UNINST}#@ make_uninstall_LIBINST\n"
 			fi
@@ -167,4 +171,6 @@ if [ x"$TARGET" != "" ] ; then
 fi
 
 echo "" >> makefile
+
+cp ${MKTPLDIR}/makeinstall.template makeinstall
 
