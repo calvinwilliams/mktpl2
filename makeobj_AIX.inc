@@ -361,8 +361,6 @@ install		:	all
 			$(CP) $$FILE $(BININST)/ ; \
 		done \
 	fi
-#- make_install_BININST
-#+ make_install_BININST2
 	@if [ -n "$(BIN2)" -a -n "$(BININST2)" ] ; then \
 		if [ ! -d "$(BININST2)" ] ; then \
 			echo $(MKDIR) $(BININST2) ; \
@@ -374,7 +372,7 @@ install		:	all
 			$(CP) $$FILE $(BININST2)/ ; \
 		done \
 	fi
-#- make_install_BININST2
+#- make_install_BININST
 #+ make_install_LIBINST
 	@if [ -n "$(LIB)" -a -n "$(LIBINST)" ] ; then \
 		if [ ! -d "$(LIBINST)" ] ; then \
@@ -387,8 +385,6 @@ install		:	all
 			$(CP) $$FILE $(LIBINST)/ ; \
 		done \
 	fi
-#- make_install_LIBINST
-#+ make_install_LIBINST2
 	@if [ -n "$(LIB2)" -a -n "$(LIBINST2)" ] ; then \
 		if [ ! -d "$(LIBINST2)" ] ; then \
 			echo $(MKDIR) $(LIBINST2) ; \
@@ -400,7 +396,7 @@ install		:	all
 			$(CP) $$FILE $(LIBINST2)/ ; \
 		done \
 	fi
-#- make_install_LIBINST2
+#- make_install_LIBINST
 #+ make_install_HDERINST
 	@if [ -n "$(HDER)" -a -n "$(HDERINST)" ] ; then \
 		if [ ! -d "$(HDERINST)" ] ; then \
@@ -413,8 +409,6 @@ install		:	all
 			$(CP) $$FILE $(HDERINST)/ ; \
 		done \
 	fi
-#- make_install_HDERINST
-#+ make_install_HDERINST2
 	@if [ -n "$(HDER2)" -a -n "$(HDERINST2)" ] ; then \
 		if [ ! -d "$(HDERINST2)" ] ; then \
 			echo $(MKDIR) $(HDERINST2) ; \
@@ -426,7 +420,7 @@ install		:	all
 			$(CP) $$FILE $(HDERINST2)/ ; \
 		done \
 	fi
-#- make_install_HDERINST2
+#- make_install_HDERINST
 #+ make_install_DFTHDERINST
 	@if [ -n "$(DFTHDER)" -a -n "$(DFTHDERINST)" ] ; then \
 		if [ ! -d "$(DFTHDERINST)" ] ; then \
@@ -452,8 +446,6 @@ install		:	all
 			$(CP) $$FILE $(OBJINST)/ ; \
 		done \
 	fi
-#- make_install_OBJINST
-#+ make_install_OBJINST2
 	@if [ -n "$(OBJ2)" -a -n "$(OBJINST2)" ] ; then \
 		if [ ! -d "$(OBJINST2)" ] ; then \
 			echo $(MKDIR) $(OBJINST2) ; \
@@ -465,7 +457,7 @@ install		:	all
 			$(CP) $$FILE $(OBJINST2)/ ; \
 		done \
 	fi
-#- make_install_OBJINST2
+#- make_install_OBJINST
 #+ make_install_NOCLEAN_OBJINST
 	@if [ -n "$(NOCLEAN_OBJ)" -a -n "$(NOCLEAN_OBJINST)" ] ; then \
 		if [ ! -d "$(NOCLEAN_OBJINST)" ] ; then \

@@ -366,8 +366,6 @@ ifneq ($(strip $(BININST)),)
 	done
 endif
 endif
-#- make_install_BININST
-#+ make_install_BININST2
 ifneq ($(strip $(BIN2)),)
 ifneq ($(strip $(BININST2)),)
 	@if [ ! -d "$(BININST2)" ] ; then \
@@ -381,7 +379,7 @@ ifneq ($(strip $(BININST2)),)
 	done
 endif
 endif
-#- make_install_BININST2
+#- make_install_BININST
 #+ make_install_LIBINST
 ifneq ($(strip $(LIB)),)
 ifneq ($(strip $(LIBINST)),)
@@ -396,8 +394,6 @@ ifneq ($(strip $(LIBINST)),)
 	done
 endif
 endif
-#- make_install_LIBINST
-#+ make_install_LIBINST2
 ifneq ($(strip $(LIB2)),)
 ifneq ($(strip $(LIBINST2)),)
 	@if [ ! -d "$(LIBINST2)" ] ; then \
@@ -411,7 +407,7 @@ ifneq ($(strip $(LIBINST2)),)
 	done
 endif
 endif
-#- make_install_LIBINST2
+#- make_install_LIBINST
 #+ make_install_HDERINST
 ifneq ($(strip $(HDER)),)
 ifneq ($(strip $(HDERINST)),)
@@ -426,8 +422,6 @@ ifneq ($(strip $(HDERINST)),)
 	done
 endif
 endif
-#- make_install_HDERINST
-#+ make_install_HDERINST2
 ifneq ($(strip $(HDER2)),)
 ifneq ($(strip $(HDERINST2)),)
 	@if [ ! -d "$(HDERINST2)" ] ; then \
@@ -441,7 +435,7 @@ ifneq ($(strip $(HDERINST2)),)
 	done
 endif
 endif
-#- make_install_HDERINST2
+#- make_install_HDERINST
 #+ make_install_DFTHDERINST
 ifneq ($(strip $(DFTHDER)),)
 ifneq ($(strip $(DFTHDERINST)),)
@@ -471,8 +465,6 @@ ifneq ($(strip $(OBJINST)),)
 	done
 endif
 endif
-#- make_install_OBJINST
-#+ make_install_OBJINST2
 ifneq ($(strip $(OBJ2)),)
 ifneq ($(strip $(OBJINST2)),)
 	@if [ ! -d "$(OBJINST2)" ] ; then \
@@ -486,7 +478,7 @@ ifneq ($(strip $(OBJINST2)),)
 	done
 endif
 endif
-#- make_install_OBJINST2
+#- make_install_OBJINST
 #+ make_install_NOCLEAN_OBJINST
 ifneq ($(strip $(NOCLEAN_OBJ)),)
 ifneq ($(strip $(NOCLEAN_OBJINST)),)
