@@ -78,3 +78,22 @@ install	:
 		fi ; \
 	done
 #- dir_install
+
+#+ dir_uninstall
+# uninstallπÊ‘Ú
+.PHONY:uninstall
+uninstall	:
+	@for i in $(DIROBJS) ; do \
+		if [ -d "$$i" ] ; then \
+			if [ -f "$$i/makefile$(MAKEFILE_POSTFIX)" ] ; then \
+				$(CD) $$i ; \
+				$(MAKE) -f makefile$(MAKEFILE_POSTFIX) uninstall ; \
+				if [ $$? -ne 0 ] ; then \
+					exit 1 ; \
+				fi ; \
+				$(CD) .. ; \
+			fi ; \
+		fi ; \
+	done
+#- dir_uninstall
+

@@ -86,3 +86,25 @@ install	:
 		) \
 	)
 #- dir_install
+
+#+ dir_uninstall
+# uninstallπÊ‘Ú
+.PHONY:uninstall
+uninstall	:
+	@for %%i in ($(DIROBJS)) do ( \
+		if exist %%i \
+		( \
+			if exist "%%i/makefile$(MAKEFILE_POSTFIX)" \
+			( \
+				$(CD) %%i && \
+				$(MAKE) -f makefile$(MAKEFILE_POSTFIX) uninstall && \
+				$(CD) .. \
+			) \
+		) && \
+		if not errorlevel 0 \
+		( \
+			exit \
+		) \
+	)
+#- dir_uninstall
+

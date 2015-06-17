@@ -37,6 +37,7 @@ while read LINE ; do
 		printf "#@ dir_make\n"
 		printf "#@ dir_clean\n"
 		printf "#@ dir_install\n"
+		printf "#@ dir_uninstall\n"
 	fi
 	
 	if [ x"$LINE" = x"" ] ; then
