@@ -324,7 +324,7 @@ sml2c_FILE_DFTHDER	=	$(sml2c_FILE_h) $(sml2c_FILE_SSDSTRUCT_h) $(sml2c_FILE_SSDL
 	$(SML2C) $<
 #- sml2c_FILE
 
-#################### clean清理删除规则 ####################
+#################### clean清理规则 ####################
 
 #+ make_clean
 #@ FILESYSTEM
@@ -336,7 +336,7 @@ clean		:
 	$(RM) $(_FILE_CLEAN) $(BIN) $(BIN2) $(LIB) $(LIB2) $(OBJ) $(OBJ2) $(NOINST_OBJ) $(CLEAN_ADDITION)
 #- make_clean
 
-#################### install提交安装规则 ####################
+#################### install安装规则 ####################
 
 #+ make_install
 #@ FILESYSTEM
@@ -426,3 +426,29 @@ ifneq ($(strip $(SQLINST)),)
 endif
 endif
 #- make_install_SQLINST
+
+#################### uninstall卸载规则 ####################
+
+#+ make_uninstall
+#@ FILESYSTEM
+# 预定义源代码缺省头文件宏
+DFTHDER		=	$(csm_FILE_DFTHDER) $(cui_FILE_DFTHDER) $(dtd_FILE_DFTHDER) $(prt_FILE_DFTHDER) $(fmd_FILE_DFTHDER) $(smd_FILE_DFTHDER) $(def_FILE_DFTHDER) $(act_FILE_DFTHDER)
+
+# 提交安装规则
+uninstall		:	all
+#- make_uninstall
+#+ make_uninstall_BININST
+#- make_uninstall_BININST
+#+ make_uninstall_LIBINST
+#- make_uninstall_LIBINST
+#+ make_uninstall_HDERINST
+#- make_uninstall_HDERINST
+#+ make_uninstall_DFTHDERINST
+#- make_uninstall_DFTHDERINST
+#+ make_uninstall_OBJINST
+#- make_uninstall_OBJINST
+#+ make_uninstall_NOCLEAN_OBJINST
+#- make_uninstall_NOCLEAN_OBJINST
+#+ make_uninstall_SQLINST
+#- make_uninstall_SQLINST
+

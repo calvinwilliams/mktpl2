@@ -325,7 +325,7 @@ sml2c_FILE_DFTHDER	=	$(sml2c_FILE_h) $(sml2c_FILE_SSDSTRUCT_h) $(sml2c_FILE_SSDL
 	$(SML2C) $<
 #- sml2c_FILE
 
-#################### clean清理删除规则 ####################
+#################### clean清理规则 ####################
 
 #+ make_clean
 #@ FILESYSTEM
@@ -341,7 +341,7 @@ clean		:
 	done
 #- make_clean
 
-#################### install提交安装规则 ####################
+#################### install安装规则 ####################
 
 #+ make_install
 #@ FILESYSTEM
@@ -509,3 +509,118 @@ ifneq ($(strip $(SQLINST)),)
 endif
 endif
 #- make_install_SQLINST
+
+#################### uninstall卸载规则 ####################
+
+#+ make_uninstall
+#@ FILESYSTEM
+# 预定义源代码缺省头文件宏
+DFTHDER		=	$(csm_FILE_DFTHDER) $(cui_FILE_DFTHDER) $(dtd_FILE_DFTHDER) $(prt_FILE_DFTHDER) $(fmd_FILE_DFTHDER) $(smd_FILE_DFTHDER) $(def_FILE_DFTHDER) $(act_FILE_DFTHDER) $(sml2c_FILE_DFTHDER)
+
+# 提交安装规则
+.PHONY:uninstall
+uninstall		:	all
+#- make_uninstall
+#+ make_uninstall_BININST
+ifneq ($(strip $(BIN)),)
+ifneq ($(strip $(BININST)),)
+	@for FILE in `echo $(BIN)` ; do \
+		echo $(RM) $(BININST)/$$FILE ; \
+		$(RM) $(BININST)/$$FILE ; \
+	done
+endif
+endif
+ifneq ($(strip $(BIN2)),)
+ifneq ($(strip $(BININST2)),)
+	@for FILE in `echo $(BIN2)` ; do \
+		echo $(RM) $(BININST2)/$$FILE ; \
+		$(RM) $(BININST2)/$$FILE ; \
+	done
+endif
+endif
+#- make_uninstall_BININST
+#+ make_uninstall_LIBINST
+ifneq ($(strip $(LIB)),)
+ifneq ($(strip $(LIBINST)),)
+	@for FILE in `echo $(LIB)` ; do \
+		echo $(RM) $(LIBINST)/$$FILE ; \
+		$(RM) $(LIBINST)/$$FILE ; \
+	done
+endif
+endif
+ifneq ($(strip $(LIB2)),)
+ifneq ($(strip $(LIBINST2)),)
+	@for FILE in `echo $(LIB2)` ; do \
+		echo $(RM) $(LIBINST2)/$$FILE ; \
+		$(RM) $(LIBINST2)/$$FILE ; \
+	done
+endif
+endif
+#- make_uninstall_LIBINST
+#+ make_uninstall_HDERINST
+ifneq ($(strip $(HDER)),)
+ifneq ($(strip $(HDERINST)),)
+	@for FILE in `echo $(HDER)` ; do \
+		echo $(RM) $(HDERINST)/$$FILE ; \
+		$(RM) $(HDERINST)/$$FILE ; \
+	done
+endif
+endif
+ifneq ($(strip $(HDER2)),)
+ifneq ($(strip $(HDERINST2)),)
+	@for FILE in `echo $(HDER2)` ; do \
+		echo $(RM) $(HDERINST2)/$$FILE ; \
+		$(RM) $(HDERINST2)/$$FILE ; \
+	done
+endif
+endif
+#- make_uninstall_HDERINST
+#+ make_uninstall_DFTHDERINST
+ifneq ($(strip $(DFTHDER)),)
+ifneq ($(strip $(DFTHDERINST)),)
+	@for FILE in `echo $(DFTHDER)` ; do \
+		echo $(RM) $(DFTHDERINST)/$$FILE ; \
+		$(RM) $(DFTHDERINST)/$$FILE ; \
+	done
+endif
+endif
+#- make_uninstall_DFTHDERINST
+#+ make_uninstall_OBJINST
+ifneq ($(strip $(OBJ)),)
+ifneq ($(strip $(OBJINST)),)
+	@for FILE in `echo $(OBJ)` ; do \
+		echo $(RM) $(OBJINST)/$$FILE ; \
+		$(RM) $(OBJINST)/$$FILE ; \
+	done
+endif
+endif
+ifneq ($(strip $(OBJ2)),)
+ifneq ($(strip $(OBJINST2)),)
+	@for FILE in `echo $(OBJ2)` ; do \
+		echo $(RM) $(OBJINST2)/$$FILE ; \
+		$(RM) $(OBJINST2)/$$FILE ; \
+	done
+endif
+endif
+#- make_uninstall_OBJINST
+#+ make_uninstall_NOCLEAN_OBJINST
+ifneq ($(strip $(NOCLEAN_OBJ)),)
+ifneq ($(strip $(NOCLEAN_OBJINST)),)
+	@for FILE in `echo $(NOCLEAN_OBJ)` ; do \
+		echo $(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
+		$(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
+	done
+endif
+endif
+#- make_uninstall_NOCLEAN_OBJINST
+#+ make_uninstall_SQLINST
+ifneq ($(strip $(SQL)),)
+ifneq ($(strip $(SQLINST)),)
+	@for FILE in `echo $(SQL)` ; do \
+		echo $(RM) $(SQLINST)/$$FILE ; \
+		$(RM) $(SQLINST)/$$FILE ; \
+	done
+endif
+endif
+#- make_uninstall_SQLINST
+

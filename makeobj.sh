@@ -27,6 +27,7 @@ IFS=
 
 _FILE_o=""
 _INST=""
+_UNINST=""
 BLANKLING_FLAG=0
 
 while read -r LINE ; do
@@ -70,6 +71,7 @@ while read -r LINE ; do
 			if [ x"$TARGET_EXT" = x"" ] ; then
 				printf "BININST		=	\$(HOME)/bin\n"
 				_INST="${_INST}#@ make_install_BININST\n"
+				_UNINST="${_UNINST}#@ make_uninstall_BININST\n"
 			fi
 		fi
 		continue
@@ -85,6 +87,7 @@ while read -r LINE ; do
 			if [ x"$TARGET_EXT" = x"a" -o x"$TARGET_EXT" = x"so" ] ; then
 				printf "LIBINST		=	\$(HOME)/lib\n"
 				_INST="${_INST}#@ make_install_LIBINST\n"
+				_UNINST="${_UNINST}#@ make_uninstall_LIBINST\n"
 			fi
 		fi
 		continue
@@ -105,11 +108,13 @@ while read -r LINE ; do
 		if [ $? -eq 0 ] ; then
 			printf "$LINE	\$(HOME)/include\n"
 			_INST="${_INST}#@ make_install_HDERINST\n"
+			_UNINST="${_UNINST}#@ make_uninstall_HDERINST\n"
 			echo ; BLANKLING_FLAG=1
 		fi
 		continue
 	elif [ x"$FIELD1" = x"DFTHDERINST" ] ; then
 		_INST="${_INST}#@ make_install_DFTHDERINST\n"
+		_UNINST="${_UNINST}#@ make_uninstall_DFTHDERINST\n"
 		continue
 	elif [ x"$FIELD1" = x"OBJ" ] ; then
 		continue
@@ -126,7 +131,11 @@ while read -r LINE ; do
 		printf "#@ make_clean\n"
 		printf "#@ make_install\n"
 		if [ x"$_INST" != x"" ] ; then
-			printf "${_INST}\n"
+			printf "${_INST}"
+		fi
+		printf "#@ make_uninstall\n"
+		if [ x"$_UNINST" != x"" ] ; then
+			printf "${_UNINST}"
 		fi
 	fi
 	
