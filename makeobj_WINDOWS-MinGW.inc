@@ -435,7 +435,7 @@ endif
 DFTHDER		=	$(csm_FILE_DFTHDER) $(cui_FILE_DFTHDER) $(dtd_FILE_DFTHDER) $(prt_FILE_DFTHDER) $(fmd_FILE_DFTHDER) $(smd_FILE_DFTHDER) $(def_FILE_DFTHDER) $(act_FILE_DFTHDER)
 
 # 提交安装规则
-uninstall		:	all
+uninstall		:
 #- make_uninstall
 #+ make_uninstall_BININST
 #- make_uninstall_BININST

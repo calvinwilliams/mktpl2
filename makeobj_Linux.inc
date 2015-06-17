@@ -519,7 +519,7 @@ DFTHDER		=	$(csm_FILE_DFTHDER) $(cui_FILE_DFTHDER) $(dtd_FILE_DFTHDER) $(prt_FIL
 
 # 提交安装规则
 .PHONY:uninstall
-uninstall		:	all
+uninstall		:
 #- make_uninstall
 #+ make_uninstall_BININST
 ifneq ($(strip $(BIN)),)
