@@ -110,7 +110,7 @@ while read -r LINE ; do
 	elif [ x"$FIELD1" = x"HDERINST" ] ; then
 		ls -d *.h > /dev/null 2>&1
 		if [ $? -eq 0 ] ; then
-			printf "$LINE	\$(HOME)/include\n"
+			printf "$LINE	\$(_HDERINST)\n"
 			_INST="${_INST}#@ make_install_HDERINST\n"
 			_UNINST="${_UNINST}#@ make_uninstall_HDERINST\n"
 			echo ; BLANKLING_FLAG=1
