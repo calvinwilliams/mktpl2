@@ -31,7 +31,7 @@ ESOFLAGS	=	-bdynamic -brtl -qcpluscm
 
 #+ make_all
 # 最终目标列表
-all	:	$(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOCLEAN_OBJ) $(NOINST_OBJ) $(BIN) $(BIN2)
+all	:	$(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOINST_OBJ) $(BIN) $(BIN2)
 #- make_all
 
 #################### 预定义源文件类型宏、关联宏及推导规则 ####################

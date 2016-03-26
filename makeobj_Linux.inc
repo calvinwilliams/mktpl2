@@ -31,7 +31,7 @@ ESOFLAGS	=
 
 #+ make_all
 # 最终目标列表
-all	:	$(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOCLEAN_OBJ) $(NOINST_OBJ) $(BIN) $(BIN2)
+all	:	$(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOINST_OBJ) $(BIN) $(BIN2)
 #- make_all
 
 #################### 预定义源文件类型宏、关联宏及推导规则 ####################
@@ -353,147 +353,236 @@ DFTHDER		=	$(csm_FILE_DFTHDER) $(cui_FILE_DFTHDER) $(dtd_FILE_DFTHDER) $(prt_FIL
 install		:	all
 #- make_install
 #+ make_install_BININST
-ifneq ($(strip $(BIN)),)
 ifneq ($(strip $(BININST)),)
 	@if [ ! -d "$(BININST)" ] ; then \
 		echo $(MKDIR) $(BININST) ; \
 		$(MKDIR) $(BININST) ; \
-	fi ; \
-	for FILE in `echo $(BIN)` ; do \
-		echo $(CP) $$FILE $(BININST)/ ; \
-		$(RM) $(BININST)/$$FILE ; \
-		$(CP) $$FILE $(BININST)/ ; \
+	fi
+ifneq ($(strip $(BIN)),)
+	@for FILE in `echo $(BIN)` ; do \
+		if [ -f $(BININST)/$$FILE ] ; then \
+			$(RM) $(BININST)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(BININST)/ ; \
+			$(CP) $$FILE $(BININST)/ ; \
+		fi ; \
 	done
 endif
 endif
-ifneq ($(strip $(BIN2)),)
 ifneq ($(strip $(BININST2)),)
 	@if [ ! -d "$(BININST2)" ] ; then \
 		echo $(MKDIR) $(BININST2) ; \
 		$(MKDIR) $(BININST2) ; \
-	fi ; \
-	for FILE in `echo $(BIN2)` ; do \
-		echo $(CP) $$FILE $(BININST2)/ ; \
-		$(RM) $(BININST2)/$$FILE ; \
-		$(CP) $$FILE $(BININST2)/ ; \
+	fi
+ifneq ($(strip $(BIN2)),)
+	@for FILE in `echo $(BIN2)` ; do \
+		if [ -f $(BININST2)/$$FILE ] ; then \
+			$(RM) $(BININST2)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(BININST2)/ ; \
+			$(CP) $$FILE $(BININST2)/ ; \
+		fi ; \
 	done
 endif
 endif
 #- make_install_BININST
 #+ make_install_LIBINST
-ifneq ($(strip $(LIB)),)
 ifneq ($(strip $(LIBINST)),)
 	@if [ ! -d "$(LIBINST)" ] ; then \
 		echo $(MKDIR) $(LIBINST) ; \
 		$(MKDIR) $(LIBINST) ; \
-	fi ; \
-	for FILE in `echo $(LIB)` ; do \
-		echo $(CP) $$FILE $(LIBINST)/ ; \
-		$(RM) $(LIBINST)/$$FILE ; \
-		$(CP) $$FILE $(LIBINST)/ ; \
+	fi
+ifneq ($(strip $(LIB)),)
+	@for FILE in `echo $(LIB)` ; do \
+		if [ -f $(LIBINST)/$$FILE ] ; then \
+			$(RM) $(LIBINST)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(LIBINST)/ ; \
+			$(CP) $$FILE $(LIBINST)/ ; \
+		fi ; \
 	done
 endif
 endif
-ifneq ($(strip $(LIB2)),)
 ifneq ($(strip $(LIBINST2)),)
 	@if [ ! -d "$(LIBINST2)" ] ; then \
 		echo $(MKDIR) $(LIBINST2) ; \
 		$(MKDIR) $(LIBINST2) ; \
-	fi ; \
-	for FILE in `echo $(LIB2)` ; do \
-		echo $(CP) $$FILE $(LIBINST2)/ ; \
-		$(RM) $(LIBINST2)/$$FILE ; \
-		$(CP) $$FILE $(LIBINST2)/ ; \
+	fi
+ifneq ($(strip $(LIB2)),)
+	@for FILE in `echo $(LIB2)` ; do \
+		if [ -f $(LIBINST2)/$$FILE ] ; then \
+			$(RM) $(LIBINST2)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(LIBINST2)/ ; \
+			$(CP) $$FILE $(LIBINST2)/ ; \
+		fi ; \
 	done
 endif
 endif
 #- make_install_LIBINST
 #+ make_install_HDERINST
-ifneq ($(strip $(HDER)),)
 ifneq ($(strip $(HDERINST)),)
 	@if [ ! -d "$(HDERINST)" ] ; then \
 		echo $(MKDIR) $(HDERINST) ; \
 		$(MKDIR) $(HDERINST) ; \
-	fi ; \
-	for FILE in `echo $(HDER)` ; do \
-		echo $(CP) $$FILE $(HDERINST)/ ; \
-		$(RM) $(HDERINST)/$$FILE ; \
-		$(CP) $$FILE $(HDERINST)/ ; \
+	fi
+ifneq ($(strip $(HDER)),)
+	@for FILE in `echo $(HDER)` ; do \
+		if [ -f $(HDERINST)/$$FILE ] ; then \
+			$(RM) $(HDERINST)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(HDERINST)/ ; \
+			$(CP) $$FILE $(HDERINST)/ ; \
+		fi ; \
 	done
 endif
 endif
-ifneq ($(strip $(HDER2)),)
 ifneq ($(strip $(HDERINST2)),)
 	@if [ ! -d "$(HDERINST2)" ] ; then \
 		echo $(MKDIR) $(HDERINST2) ; \
 		$(MKDIR) $(HDERINST2) ; \
-	fi ; \
-	for FILE in `echo $(HDER2)` ; do \
-		echo $(CP) $$FILE $(HDERINST2)/ ; \
-		$(RM) $(HDERINST2)/$$FILE ; \
-		$(CP) $$FILE $(HDERINST2)/ ; \
+	fi
+ifneq ($(strip $(HDER2)),)
+	@for FILE in `echo $(HDER2)` ; do \
+		if [ -f $(HDERINST2)/$$FILE ] ; then \
+			$(RM) $(HDERINST2)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(HDERINST2)/ ; \
+			$(CP) $$FILE $(HDERINST2)/ ; \
+		fi ; \
 	done
 endif
 endif
 #- make_install_HDERINST
 #+ make_install_DFTHDERINST
-ifneq ($(strip $(DFTHDER)),)
 ifneq ($(strip $(DFTHDERINST)),)
 	@if [ ! -d "$(DFTHDERINST)" ] ; then \
 		echo $(MKDIR) $(DFTHDERINST) ; \
 		$(MKDIR) $(DFTHDERINST) ; \
-	fi ; \
-	for FILE in `echo $(DFTHDER)` ; do \
-		echo $(CP) $$FILE $(DFTHDERINST)/ ; \
-		$(RM) $(DFTHDERINST)/$$FILE ; \
-		$(CP) $$FILE $(DFTHDERINST)/ ; \
+	fi
+ifneq ($(strip $(DFTHDER)),)
+	@for FILE in `echo $(DFTHDER)` ; do \
+		if [ -f $(DFTHDERINST)/$$FILE ] ; then \
+			$(RM) $(DFTHDERINST)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(DFTHDERINST)/ ; \
+			$(CP) $$FILE $(DFTHDERINST)/ ; \
+		fi ; \
 	done
 endif
 endif
 #- make_install_DFTHDERINST
 #+ make_install_OBJINST
-ifneq ($(strip $(OBJ)),)
 ifneq ($(strip $(OBJINST)),)
 	@if [ ! -d "$(OBJINST)" ] ; then \
 		echo $(MKDIR) $(OBJINST) ; \
 		$(MKDIR) $(OBJINST) ; \
-	fi ; \
-	for FILE in `echo $(OBJ)` ; do \
-		echo $(CP) $$FILE $(OBJINST)/ ; \
-		$(RM) $(OBJINST)/$$FILE ; \
-		$(CP) $$FILE $(OBJINST)/ ; \
+	fi
+ifneq ($(strip $(OBJ)),)
+	@for FILE in `echo $(OBJ)` ; do \
+		if [ -f $(OBJINST)/$$FILE ] ; then \
+			$(RM) $(OBJINST)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(OBJINST)/ ; \
+			$(CP) $$FILE $(OBJINST)/ ; \
+		fi ; \
 	done
 endif
 endif
-ifneq ($(strip $(OBJ2)),)
 ifneq ($(strip $(OBJINST2)),)
 	@if [ ! -d "$(OBJINST2)" ] ; then \
 		echo $(MKDIR) $(OBJINST2) ; \
 		$(MKDIR) $(OBJINST2) ; \
-	fi ; \
-	for FILE in `echo $(OBJ2)` ; do \
-		echo $(CP) $$FILE $(OBJINST2)/ ; \
-		$(RM) $(OBJINST2)/$$FILE ; \
-		$(CP) $$FILE $(OBJINST2)/ ; \
+	fi
+ifneq ($(strip $(OBJ2)),)
+	@for FILE in `echo $(OBJ2)` ; do \
+		if [ -f $(OBJINST2)/$$FILE ] ; then \
+			$(RM) $(OBJINST2)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(OBJINST2)/ ; \
+			$(CP) $$FILE $(OBJINST2)/ ; \
+		fi ; \
 	done
 endif
 endif
 #- make_install_OBJINST
 #+ make_install_NOCLEAN_OBJINST
-ifneq ($(strip $(NOCLEAN_OBJ)),)
 ifneq ($(strip $(NOCLEAN_OBJINST)),)
 	@if [ ! -d "$(NOCLEAN_OBJINST)" ] ; then \
 		echo $(MKDIR) $(NOCLEAN_OBJINST) ; \
 		$(MKDIR) $(NOCLEAN_OBJINST) ; \
-	fi ; \
-	for FILE in `echo $(NOCLEAN_OBJ)` ; do \
-		echo $(CP) $$FILE $(NOCLEAN_OBJINST)/ ; \
-		$(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
-		$(CP) $$FILE $(NOCLEAN_OBJINST)/ ; \
+	fi ;
+ifneq ($(strip $(NOCLEAN_OBJ)),)
+	@for FILE in `echo $(NOCLEAN_OBJ)` ; do \
+		if [ -f $(NOCLEAN_OBJINST)/$$FILE ] ; then \
+			$(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
+		fi ; \
+		if [ -f $$FILE ] ; then \
+			echo $(CP) $$FILE $(NOCLEAN_OBJINST)/ ; \
+			$(CP) $$FILE $(NOCLEAN_OBJINST)/ ; \
+		fi ; \
 	done
 endif
 endif
 #- make_install_NOCLEAN_OBJINST
+#+ make_install_NOCLEAN_OBJINST_NOCOVER
+ifneq ($(strip $(NOCLEAN_OBJINST_NOCOVER)),)
+	@if [ ! -d "$(NOCLEAN_OBJINST_NOCOVER)" ] ; then \
+		echo $(MKDIR) $(NOCLEAN_OBJINST_NOCOVER) ; \
+		$(MKDIR) $(NOCLEAN_OBJINST_NOCOVER) ; \
+	fi ;
+ifneq ($(strip $(NOCLEAN_OBJ_NOCOVER)),)
+	@for FILE in `echo $(NOCLEAN_OBJ_NOCOVER)` ; do \
+		FILE2=`basename $$FILE` ; \
+		if [ -f $(NOCLEAN_OBJINST_NOCOVER)/$$FILE2 ] ; then \
+			echo $(NOCLEAN_OBJINST_NOCOVER)/$$FILE2 EXIST !!! ; \
+		else \
+			echo $(CP) $$FILE $(NOCLEAN_OBJINST_NOCOVER)/ ; \
+			$(CP) $$FILE $(NOCLEAN_OBJINST_NOCOVER)/ ; \
+		fi ; \
+	done
+endif
+endif
+#- make_install_NOCLEAN_OBJINST_NOCOVER
+#+ make_install_NOCLEAN_OBJINST2_NOCOVER
+ifneq ($(strip $(NOCLEAN_OBJINST2_NOCOVER)),)
+	@if [ ! -d "$(NOCLEAN_OBJINST2_NOCOVER)" ] ; then \
+		echo $(MKDIR) $(NOCLEAN_OBJINST2_NOCOVER) ; \
+		$(MKDIR) $(NOCLEAN_OBJINST2_NOCOVER) ; \
+	fi ;
+ifneq ($(strip $(NOCLEAN_OBJ2_NOCOVER)),)
+	@for FILE in `echo $(NOCLEAN_OBJ2_NOCOVER)` ; do \
+		FILE2=`basename $$FILE` ; \
+		if [ -f $(NOCLEAN_OBJINST2_NOCOVER)/$$FILE2 ] ; then \
+			echo $(NOCLEAN_OBJINST2_NOCOVER)/$$FILE2 EXIST !!! ; \
+		else \
+			echo $(CP) $$FILE $(NOCLEAN_OBJINST2_NOCOVER)/ ; \
+			$(CP) $$FILE $(NOCLEAN_OBJINST2_NOCOVER)/ ; \
+		fi ; \
+	done
+endif
+endif
+#- make_install_NOCLEAN_OBJINST2_NOCOVER
+#+ make_install_NOCLEAN_DIRINST_NOCOVER
+ifneq ($(strip $(NOCLEAN_DIRINST_NOCOVER)),)
+	@if [ -d "$(NOCLEAN_DIRINST_NOCOVER)" ] ; then \
+		echo $(NOCLEAN_DIRINST_NOCOVER) EXIST !!! ; \
+	else \
+		echo $(MKDIR) $(NOCLEAN_DIRINST_NOCOVER) ; \
+		$(MKDIR) $(NOCLEAN_DIRINST_NOCOVER) ; \
+		echo $(NOCLEAN_DIRINST_NOCOVER) EXIST !!! ; \
+	fi ;
+endif
+#- make_install_NOCLEAN_DIRINST_NOCOVER
 #+ make_install_SQLINST
 ifneq ($(strip $(SQL)),)
 ifneq ($(strip $(SQLINST)),)
@@ -501,7 +590,7 @@ ifneq ($(strip $(SQLINST)),)
 		echo $(MKDIR) $(SQLINST) ; \
 		$(MKDIR) $(SQLINST) ; \
 	fi ; \
-	for FILE in `echo $(SQL)` ; do \
+	@for FILE in `echo $(SQL)` ; do \
 		echo $(CP) $$FILE $(SQLINST)/ ; \
 		$(RM) $(SQLINST)/$$FILE ; \
 		$(CP) $$FILE $(SQLINST)/ ; \
@@ -525,16 +614,20 @@ uninstall		:
 ifneq ($(strip $(BIN)),)
 ifneq ($(strip $(BININST)),)
 	@for FILE in `echo $(BIN)` ; do \
-		echo $(RM) $(BININST)/$$FILE ; \
-		$(RM) $(BININST)/$$FILE ; \
+		if [ -f $(BININST)/$$FILE ] ; then \
+			echo $(RM) $(BININST)/$$FILE ; \
+			$(RM) $(BININST)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
 ifneq ($(strip $(BIN2)),)
 ifneq ($(strip $(BININST2)),)
 	@for FILE in `echo $(BIN2)` ; do \
-		echo $(RM) $(BININST2)/$$FILE ; \
-		$(RM) $(BININST2)/$$FILE ; \
+		if [ -f $(BININST2)/$$FILE ] ; then \
+			echo $(RM) $(BININST2)/$$FILE ; \
+			$(RM) $(BININST2)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
@@ -543,16 +636,20 @@ endif
 ifneq ($(strip $(LIB)),)
 ifneq ($(strip $(LIBINST)),)
 	@for FILE in `echo $(LIB)` ; do \
-		echo $(RM) $(LIBINST)/$$FILE ; \
-		$(RM) $(LIBINST)/$$FILE ; \
+		if [ -f $(LIBINST)/$$FILE ] ; then \
+			echo $(RM) $(LIBINST)/$$FILE ; \
+			$(RM) $(LIBINST)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
 ifneq ($(strip $(LIB2)),)
 ifneq ($(strip $(LIBINST2)),)
 	@for FILE in `echo $(LIB2)` ; do \
-		echo $(RM) $(LIBINST2)/$$FILE ; \
-		$(RM) $(LIBINST2)/$$FILE ; \
+		if [ -f $(LIBINST2)/$$FILE ] ; then \
+			echo $(RM) $(LIBINST2)/$$FILE ; \
+			$(RM) $(LIBINST2)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
@@ -561,16 +658,20 @@ endif
 ifneq ($(strip $(HDER)),)
 ifneq ($(strip $(HDERINST)),)
 	@for FILE in `echo $(HDER)` ; do \
-		echo $(RM) $(HDERINST)/$$FILE ; \
-		$(RM) $(HDERINST)/$$FILE ; \
+		if [ -f $(HDERINST)/$$FILE ] ; then \
+			echo $(RM) $(HDERINST)/$$FILE ; \
+			$(RM) $(HDERINST)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
 ifneq ($(strip $(HDER2)),)
 ifneq ($(strip $(HDERINST2)),)
 	@for FILE in `echo $(HDER2)` ; do \
-		echo $(RM) $(HDERINST2)/$$FILE ; \
-		$(RM) $(HDERINST2)/$$FILE ; \
+		if [ -f $(HDERINST2)/$$FILE ] ; then \
+			echo $(RM) $(HDERINST2)/$$FILE ; \
+			$(RM) $(HDERINST2)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
@@ -579,8 +680,10 @@ endif
 ifneq ($(strip $(DFTHDER)),)
 ifneq ($(strip $(DFTHDERINST)),)
 	@for FILE in `echo $(DFTHDER)` ; do \
-		echo $(RM) $(DFTHDERINST)/$$FILE ; \
-		$(RM) $(DFTHDERINST)/$$FILE ; \
+		if [ -f $(DFTHDERINST)/$$FILE ] ; then \
+			echo $(RM) $(DFTHDERINST)/$$FILE ; \
+			$(RM) $(DFTHDERINST)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
@@ -589,16 +692,20 @@ endif
 ifneq ($(strip $(OBJ)),)
 ifneq ($(strip $(OBJINST)),)
 	@for FILE in `echo $(OBJ)` ; do \
-		echo $(RM) $(OBJINST)/$$FILE ; \
-		$(RM) $(OBJINST)/$$FILE ; \
+		if [ -f $(OBJINST)/$$FILE ] ; then \
+			echo $(RM) $(OBJINST)/$$FILE ; \
+			$(RM) $(OBJINST)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
 ifneq ($(strip $(OBJ2)),)
 ifneq ($(strip $(OBJINST2)),)
 	@for FILE in `echo $(OBJ2)` ; do \
-		echo $(RM) $(OBJINST2)/$$FILE ; \
-		$(RM) $(OBJINST2)/$$FILE ; \
+		if [ -f $(OBJINST2)/$$FILE ] ; then \
+			echo $(RM) $(OBJINST2)/$$FILE ; \
+			$(RM) $(OBJINST2)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
@@ -607,8 +714,10 @@ endif
 ifneq ($(strip $(NOCLEAN_OBJ)),)
 ifneq ($(strip $(NOCLEAN_OBJINST)),)
 	@for FILE in `echo $(NOCLEAN_OBJ)` ; do \
-		echo $(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
-		$(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
+		if [ -f $(NOCLEAN_OBJINST)/$$FILE ] ; then \
+			echo $(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
+			$(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
@@ -617,8 +726,10 @@ endif
 ifneq ($(strip $(SQL)),)
 ifneq ($(strip $(SQLINST)),)
 	@for FILE in `echo $(SQL)` ; do \
-		echo $(RM) $(SQLINST)/$$FILE ; \
-		$(RM) $(SQLINST)/$$FILE ; \
+		if [ -f $(SQLINST)/$$FILE ] ; then \
+			echo $(RM) $(SQLINST)/$$FILE ; \
+			$(RM) $(SQLINST)/$$FILE ; \
+		fi ; \
 	done
 endif
 endif
