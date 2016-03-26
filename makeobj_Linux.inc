@@ -14,7 +14,7 @@
 # 文件系统宏
 CD		=	cd
 RM		=	rm -f
-CP		=	cp -f
+CP		=	cp -rf
 MV		=	mv -f
 MKDIR		=	mkdir -p
 #- FILESYSTEM
@@ -352,6 +352,26 @@ DFTHDER		=	$(csm_FILE_DFTHDER) $(cui_FILE_DFTHDER) $(dtd_FILE_DFTHDER) $(prt_FIL
 .PHONY:install
 install		:	all
 #- make_install
+#+ make_install_NOCLEAN_DIRINST_NOCOVER
+ifneq ($(strip $(NOCLEAN_DIRINST_NOCOVER)),)
+	@if [ -d "$(NOCLEAN_DIRINST_NOCOVER)" ] ; then \
+		echo $(NOCLEAN_DIRINST_NOCOVER) EXIST !!! ; \
+	else \
+		echo $(MKDIR) $(NOCLEAN_DIRINST_NOCOVER) ; \
+		$(MKDIR) $(NOCLEAN_DIRINST_NOCOVER) ; \
+	fi ;
+endif
+#- make_install_NOCLEAN_DIRINST_NOCOVER
+#+ make_install_NOCLEAN_DIRINST2_NOCOVER
+ifneq ($(strip $(NOCLEAN_DIRINST2_NOCOVER)),)
+	@if [ -d "$(NOCLEAN_DIRINST2_NOCOVER)" ] ; then \
+		echo $(NOCLEAN_DIRINST2_NOCOVER) EXIST !!! ; \
+	else \
+		echo $(MKDIR) $(NOCLEAN_DIRINST2_NOCOVER) ; \
+		$(MKDIR) $(NOCLEAN_DIRINST2_NOCOVER) ; \
+	fi ;
+endif
+#- make_install_NOCLEAN_DIRINST2_NOCOVER
 #+ make_install_BININST
 ifneq ($(strip $(BININST)),)
 	@if [ ! -d "$(BININST)" ] ; then \
@@ -523,7 +543,7 @@ ifneq ($(strip $(NOCLEAN_OBJINST)),)
 	fi ;
 ifneq ($(strip $(NOCLEAN_OBJ)),)
 	@for FILE in `echo $(NOCLEAN_OBJ)` ; do \
-		if [ -f $(NOCLEAN_OBJINST)/$$FILE ] ; then \
+		if [ -e $(NOCLEAN_OBJINST)/$$FILE ] ; then \
 			$(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -543,7 +563,7 @@ ifneq ($(strip $(NOCLEAN_OBJINST_NOCOVER)),)
 ifneq ($(strip $(NOCLEAN_OBJ_NOCOVER)),)
 	@for FILE in `echo $(NOCLEAN_OBJ_NOCOVER)` ; do \
 		FILE2=`basename $$FILE` ; \
-		if [ -f $(NOCLEAN_OBJINST_NOCOVER)/$$FILE2 ] ; then \
+		if [ -e $(NOCLEAN_OBJINST_NOCOVER)/$$FILE2 ] ; then \
 			echo $(NOCLEAN_OBJINST_NOCOVER)/$$FILE2 EXIST !!! ; \
 		else \
 			echo $(CP) $$FILE $(NOCLEAN_OBJINST_NOCOVER)/ ; \
@@ -562,7 +582,7 @@ ifneq ($(strip $(NOCLEAN_OBJINST2_NOCOVER)),)
 ifneq ($(strip $(NOCLEAN_OBJ2_NOCOVER)),)
 	@for FILE in `echo $(NOCLEAN_OBJ2_NOCOVER)` ; do \
 		FILE2=`basename $$FILE` ; \
-		if [ -f $(NOCLEAN_OBJINST2_NOCOVER)/$$FILE2 ] ; then \
+		if [ -e $(NOCLEAN_OBJINST2_NOCOVER)/$$FILE2 ] ; then \
 			echo $(NOCLEAN_OBJINST2_NOCOVER)/$$FILE2 EXIST !!! ; \
 		else \
 			echo $(CP) $$FILE $(NOCLEAN_OBJINST2_NOCOVER)/ ; \
@@ -572,17 +592,25 @@ ifneq ($(strip $(NOCLEAN_OBJ2_NOCOVER)),)
 endif
 endif
 #- make_install_NOCLEAN_OBJINST2_NOCOVER
-#+ make_install_NOCLEAN_DIRINST_NOCOVER
-ifneq ($(strip $(NOCLEAN_DIRINST_NOCOVER)),)
-	@if [ -d "$(NOCLEAN_DIRINST_NOCOVER)" ] ; then \
-		echo $(NOCLEAN_DIRINST_NOCOVER) EXIST !!! ; \
-	else \
-		echo $(MKDIR) $(NOCLEAN_DIRINST_NOCOVER) ; \
-		$(MKDIR) $(NOCLEAN_DIRINST_NOCOVER) ; \
-		echo $(NOCLEAN_DIRINST_NOCOVER) EXIST !!! ; \
+#+ make_install_NOCLEAN_OBJINST3_NOCOVER
+ifneq ($(strip $(NOCLEAN_OBJINST3_NOCOVER)),)
+	@if [ ! -d "$(NOCLEAN_OBJINST3_NOCOVER)" ] ; then \
+		echo $(MKDIR) $(NOCLEAN_OBJINST3_NOCOVER) ; \
+		$(MKDIR) $(NOCLEAN_OBJINST3_NOCOVER) ; \
 	fi ;
+ifneq ($(strip $(NOCLEAN_OBJ3_NOCOVER)),)
+	@for FILE in `echo $(NOCLEAN_OBJ3_NOCOVER)` ; do \
+		FILE3=`basename $$FILE` ; \
+		if [ -e $(NOCLEAN_OBJINST3_NOCOVER)/$$FILE3 ] ; then \
+			echo $(NOCLEAN_OBJINST3_NOCOVER)/$$FILE3 EXIST !!! ; \
+		else \
+			echo $(CP) $$FILE $(NOCLEAN_OBJINST3_NOCOVER)/ ; \
+			$(CP) $$FILE $(NOCLEAN_OBJINST3_NOCOVER)/ ; \
+		fi ; \
+	done
 endif
-#- make_install_NOCLEAN_DIRINST_NOCOVER
+endif
+#- make_install_NOCLEAN_OBJINST3_NOCOVER
 #+ make_install_SQLINST
 ifneq ($(strip $(SQL)),)
 ifneq ($(strip $(SQLINST)),)
@@ -591,9 +619,12 @@ ifneq ($(strip $(SQLINST)),)
 		$(MKDIR) $(SQLINST) ; \
 	fi ; \
 	@for FILE in `echo $(SQL)` ; do \
-		echo $(CP) $$FILE $(SQLINST)/ ; \
-		$(RM) $(SQLINST)/$$FILE ; \
-		$(CP) $$FILE $(SQLINST)/ ; \
+		if [ -f $(SQLINST)/$$FILE ] ; then \
+			$(RM) $(SQLINST)/$$FILE ; \
+		else \
+			echo $(CP) $$FILE $(SQLINST)/ ; \
+			$(CP) $$FILE $(SQLINST)/ ; \
+		fi ; \
 	done
 endif
 endif
