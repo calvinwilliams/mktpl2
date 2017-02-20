@@ -618,10 +618,11 @@ ifneq ($(strip $(SQLINST)),)
 		echo $(MKDIR) $(SQLINST) ; \
 		$(MKDIR) $(SQLINST) ; \
 	fi ; \
-	@for FILE in `echo $(SQL)` ; do \
+	for FILE in `echo $(SQL)` ; do \
 		if [ -f $(SQLINST)/$$FILE ] ; then \
 			$(RM) $(SQLINST)/$$FILE ; \
-		else \
+		fi ; \
+		if [ -f $$FILE ] ; then \
 			echo $(CP) $$FILE $(SQLINST)/ ; \
 			$(CP) $$FILE $(SQLINST)/ ; \
 		fi ; \
