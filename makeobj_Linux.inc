@@ -381,6 +381,7 @@ ifneq ($(strip $(BININST)),)
 ifneq ($(strip $(BIN)),)
 	@for FILE in `echo $(BIN)` ; do \
 		if [ -f $(BININST)/$$FILE ] ; then \
+			echo $(RM) $(BININST)/$$FILE ; \
 			$(RM) $(BININST)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -398,6 +399,7 @@ ifneq ($(strip $(BININST2)),)
 ifneq ($(strip $(BIN2)),)
 	@for FILE in `echo $(BIN2)` ; do \
 		if [ -f $(BININST2)/$$FILE ] ; then \
+			echo $(RM) $(BININST2)/$$FILE ; \
 			$(RM) $(BININST2)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -417,6 +419,7 @@ ifneq ($(strip $(LIBINST)),)
 ifneq ($(strip $(LIB)),)
 	@for FILE in `echo $(LIB)` ; do \
 		if [ -f $(LIBINST)/$$FILE ] ; then \
+			echo $(RM) $(LIBINST)/$$FILE ; \
 			$(RM) $(LIBINST)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -434,6 +437,7 @@ ifneq ($(strip $(LIBINST2)),)
 ifneq ($(strip $(LIB2)),)
 	@for FILE in `echo $(LIB2)` ; do \
 		if [ -f $(LIBINST2)/$$FILE ] ; then \
+			echo $(RM) $(LIBINST2)/$$FILE ; \
 			$(RM) $(LIBINST2)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -453,6 +457,7 @@ ifneq ($(strip $(HDERINST)),)
 ifneq ($(strip $(HDER)),)
 	@for FILE in `echo $(HDER)` ; do \
 		if [ -f $(HDERINST)/$$FILE ] ; then \
+			echo $(RM) $(HDERINST)/$$FILE ; \
 			$(RM) $(HDERINST)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -470,6 +475,7 @@ ifneq ($(strip $(HDERINST2)),)
 ifneq ($(strip $(HDER2)),)
 	@for FILE in `echo $(HDER2)` ; do \
 		if [ -f $(HDERINST2)/$$FILE ] ; then \
+			echo $(RM) $(HDERINST2)/$$FILE ; \
 			$(RM) $(HDERINST2)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -489,6 +495,7 @@ ifneq ($(strip $(DFTHDERINST)),)
 ifneq ($(strip $(DFTHDER)),)
 	@for FILE in `echo $(DFTHDER)` ; do \
 		if [ -f $(DFTHDERINST)/$$FILE ] ; then \
+			echo $(RM) $(DFTHDERINST)/$$FILE ; \
 			$(RM) $(DFTHDERINST)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -508,6 +515,7 @@ ifneq ($(strip $(OBJINST)),)
 ifneq ($(strip $(OBJ)),)
 	@for FILE in `echo $(OBJ)` ; do \
 		if [ -f $(OBJINST)/$$FILE ] ; then \
+			echo $(RM) $(OBJINST)/$$FILE ; \
 			$(RM) $(OBJINST)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -525,6 +533,7 @@ ifneq ($(strip $(OBJINST2)),)
 ifneq ($(strip $(OBJ2)),)
 	@for FILE in `echo $(OBJ2)` ; do \
 		if [ -f $(OBJINST2)/$$FILE ] ; then \
+			echo $(RM) $(OBJINST2)/$$FILE ; \
 			$(RM) $(OBJINST2)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -544,6 +553,7 @@ ifneq ($(strip $(NOCLEAN_OBJINST)),)
 ifneq ($(strip $(NOCLEAN_OBJ)),)
 	@for FILE in `echo $(NOCLEAN_OBJ)` ; do \
 		if [ -e $(NOCLEAN_OBJINST)/$$FILE ] ; then \
+			echo $(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
 			$(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \
@@ -620,6 +630,7 @@ ifneq ($(strip $(SQLINST)),)
 	fi ; \
 	for FILE in `echo $(SQL)` ; do \
 		if [ -f $(SQLINST)/$$FILE ] ; then \
+			echo $(RM) $(SQLINST)/$$FILE ; \
 			$(RM) $(SQLINST)/$$FILE ; \
 		fi ; \
 		if [ -f $$FILE ] ; then \

@@ -356,8 +356,9 @@ install		:	all
 			$(MKDIR) $(BININST) ; \
 		fi ; \
 		for FILE in `echo $(BIN)` ; do \
-			echo $(CP) $$FILE $(BININST)/ ; \
+			echo $(RM) $(BININST)/$$FILE ; \
 			$(RM) $(BININST)/$$FILE ; \
+			echo $(CP) $$FILE $(BININST)/ ; \
 			$(CP) $$FILE $(BININST)/ ; \
 		done \
 	fi
@@ -380,8 +381,9 @@ install		:	all
 			$(MKDIR) $(LIBINST) ; \
 		fi ; \
 		for FILE in `echo $(LIB)` ; do \
-			echo $(CP) $$FILE $(LIBINST)/ ; \
+			echo $(RM) $(LIBINST)/$$FILE ; \
 			$(RM) $(LIBINST)/$$FILE ; \
+			echo $(CP) $$FILE $(LIBINST)/ ; \
 			$(CP) $$FILE $(LIBINST)/ ; \
 		done \
 	fi
@@ -391,8 +393,9 @@ install		:	all
 			$(MKDIR) $(LIBINST2) ; \
 		fi ; \
 		for FILE in `echo $(LIB2)` ; do \
-			echo $(CP) $$FILE $(LIBINST2)/ ; \
+			echo $(RM) $(LIBINST2)/$$FILE ; \
 			$(RM) $(LIBINST2)/$$FILE ; \
+			echo $(CP) $$FILE $(LIBINST2)/ ; \
 			$(CP) $$FILE $(LIBINST2)/ ; \
 		done \
 	fi
@@ -404,8 +407,9 @@ install		:	all
 			$(MKDIR) $(HDERINST) ; \
 		fi ; \
 		for FILE in `echo $(HDER)` ; do \
-			echo $(CP) $$FILE $(HDERINST)/ ; \
+			echo $(RM) $(HDERINST)/$$FILE ; \
 			$(RM) $(HDERINST)/$$FILE ; \
+			echo $(CP) $$FILE $(HDERINST)/ ; \
 			$(CP) $$FILE $(HDERINST)/ ; \
 		done \
 	fi
@@ -415,8 +419,9 @@ install		:	all
 			$(MKDIR) $(HDERINST2) ; \
 		fi ; \
 		for FILE in `echo $(HDER2)` ; do \
-			echo $(CP) $$FILE $(HDERINST2)/ ; \
+			echo $(RM) $(HDERINST2)/$$FILE ; \
 			$(RM) $(HDERINST2)/$$FILE ; \
+			echo $(CP) $$FILE $(HDERINST2)/ ; \
 			$(CP) $$FILE $(HDERINST2)/ ; \
 		done \
 	fi
@@ -428,8 +433,9 @@ install		:	all
 			$(MKDIR) $(DFTHDERINST) ; \
 		fi ; \
 		for FILE in `echo $(DFTHDER)` ; do \
-			echo $(CP) $$FILE $(DFTHDERINST)/ ; \
+			echo $(RM) $(DFTHDERINST)/$$FILE ; \
 			$(RM) $(DFTHDERINST)/$$FILE ; \
+			echo $(CP) $$FILE $(DFTHDERINST)/ ; \
 			$(CP) $$FILE $(DFTHDERINST)/ ; \
 		done \
 	fi
@@ -441,8 +447,9 @@ install		:	all
 			$(MKDIR) $(OBJINST) ; \
 		fi ; \
 		for FILE in `echo $(OBJ)` ; do \
-			echo $(CP) $$FILE $(OBJINST)/ ; \
+			echo $(RM) $(OBJINST)/$$FILE ; \
 			$(RM) $(OBJINST)/$$FILE ; \
+			echo $(CP) $$FILE $(OBJINST)/ ; \
 			$(CP) $$FILE $(OBJINST)/ ; \
 		done \
 	fi
@@ -452,8 +459,9 @@ install		:	all
 			$(MKDIR) $(OBJINST2) ; \
 		fi ; \
 		for FILE in `echo $(OBJ2)` ; do \
-			echo $(CP) $$FILE $(OBJINST2)/ ; \
+			echo $(RM) $(OBJINST2)/$$FILE ; \
 			$(RM) $(OBJINST2)/$$FILE ; \
+			echo $(CP) $$FILE $(OBJINST2)/ ; \
 			$(CP) $$FILE $(OBJINST2)/ ; \
 		done \
 	fi
@@ -465,8 +473,9 @@ install		:	all
 			$(MKDIR) $(NOCLEAN_OBJINST) ; \
 		fi ; \
 		for FILE in `echo $(NOCLEAN_OBJ)` ; do \
-			echo $(CP) $$FILE $(NOCLEAN_OBJINST)/ ; \
+			echo $(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
 			$(RM) $(NOCLEAN_OBJINST)/$$FILE ; \
+			echo $(CP) $$FILE $(NOCLEAN_OBJINST)/ ; \
 			$(CP) $$FILE $(NOCLEAN_OBJINST)/ ; \
 		done \
 	fi
@@ -478,8 +487,9 @@ install		:	all
 			$(MKDIR) $(SQLINST) ; \
 		fi ; \
 		for FILE in `echo $(SQL)` ; do \
-			echo $(CP) $$FILE $(SQLINST)/ ; \
+			echo $(RM) $(SQLINST)/$$FILE ; \
 			$(RM) $(SQLINST)/$$FILE ; \
+			echo $(CP) $$FILE $(SQLINST)/ ; \
 			$(CP) $$FILE $(SQLINST)/ ; \
 		done \
 	fi

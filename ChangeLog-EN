@@ -1,3 +1,6 @@
+v2.0.11		2017-05-17	calvin		calvinwilliams@163.com
+		* echo rm info on install
+
 v2.0.10		2015-06-17	calvin		calvinwilliams@163.com
 		* Adjust automatic expand macro
 		* Add command "uninstall"
