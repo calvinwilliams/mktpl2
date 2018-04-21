@@ -32,6 +32,16 @@ ESOFLAGS	=
 #+ make_all
 # 最终目标列表
 all	:	$(PREPRO_MAKE) $(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOCLEAN_OBJ) $(NOINST_OBJ) $(BIN) $(BIN2)
+
+$(OBJ)	:	$(PREPRO_MAKE)
+$(OBJ2)	:	$(PREPRO_MAKE)
+$(LIB)	:	$(PREPRO_MAKE)
+$(LIB2)	:	$(PREPRO_MAKE)
+$(SQL)	:	$(PREPRO_MAKE)
+$(NOINST_OBJ)	:	$(PREPRO_MAKE)
+$(BIN)	:	$(PREPRO_MAKE)
+$(BIN2)	:	$(PREPRO_MAKE)
+
 #- make_all
 
 #################### 预定义源文件类型宏、关联宏及推导规则 ####################
