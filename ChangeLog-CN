@@ -1,6 +1,9 @@
 版本号		更新日期	开发者		电子邮箱
 		更新内容
 ------------------------------------------------------------------------------
+2.1.0		2018-04-21	calvin		calvinwilliams@163.com
+		* 新增clean、make和install前无条件执行注册项PREPRO_CLEAN、PREPRO_MAKE和PREPRO_INSTALL
+
 2.0.11		2017-05-17	calvin		calvinwilliams@163.com
 		* install时rm也echo出来
 

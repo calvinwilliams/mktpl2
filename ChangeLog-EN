@@ -1,19 +1,22 @@
-v2.0.11		2017-05-17	calvin		calvinwilliams@163.com
+2.1.0		2018-04-21	calvin		calvinwilliams@163.com
+		* Add registe macro PREPRO_CLEAN,PREPRO_MAKE,PREPRO_INSTALL running before clean,make,install
+
+2.0.11		2017-05-17	calvin		calvinwilliams@163.com
 		* echo rm info on install
 
-v2.0.10		2015-06-17	calvin		calvinwilliams@163.com
+2.0.10		2015-06-17	calvin		calvinwilliams@163.com
 		* Adjust automatic expand macro
 		* Add command "uninstall"
 
-v2.0.9		2015-06-09	calvin		calvinwilliams@163.com
+2.0.9		2015-06-09	calvin		calvinwilliams@163.com
 		* Fixed some bugs
 
-v2.0.6		2015-05-24	calvin		calvinwilliams@163.com
+2.0.6		2015-05-24	calvin		calvinwilliams@163.com
 		* Modify rule of .ec on Linux
 
-v2.0.7		2015-05-16	calvin		calvinwilliams@163.com
+2.0.7		2015-05-16	calvin		calvinwilliams@163.com
 		* Makefile and makefile.* existed in same folder
 		* Completed rule of .ec files
 
-v1.0.0		2004-??-??	calvin		calvinwilliams.c@gmail.com
+1.0.0		2004-??-??	calvin		calvinwilliams.c@gmail.com
 		* Published the first version

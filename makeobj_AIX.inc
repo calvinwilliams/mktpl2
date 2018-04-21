@@ -31,7 +31,7 @@ ESOFLAGS	=	-bdynamic -brtl -qcpluscm
 
 #+ make_all
 # 最终目标列表
-all	:	$(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOINST_OBJ) $(BIN) $(BIN2)
+all	:	$(PREPRO_MAKE) $(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOINST_OBJ) $(BIN) $(BIN2)
 #- make_all
 
 #################### 预定义源文件类型宏、关联宏及推导规则 ####################
@@ -332,7 +332,7 @@ sml2c_FILE_DFTHDER	=	$(sml2c_FILE_h) $(sml2c_FILE_SSDSTRUCT_h) $(sml2c_FILE_SSDL
 _FILE_CLEAN	=	$(c_FILE_CLEAN) $(cpp_FILE_CLEAN) $(SQC_FILE_CLEAN) $(ec_FILE_CLEAN) $(ec_FILE2_CLEAN) $(csm_FILE_CLEAN) $(c_html_FILE_CLEAN) $(cui_FILE_CLEAN) $(dtd_FILE_CLEAN) $(prt_FILE_CLEAN) $(fmd_FILE_CLEAN) $(smd_FILE_CLEAN) $(def_FILE_CLEAN) $(act_FILE_CLEAN)
 
 # 清理删除规则
-clean		:
+clean		:	$(PREPRO_CLEAN)
 	@for FILE in $(_FILE_CLEAN) $(BIN) $(BIN2) $(LIB) $(LIB2) $(OBJ) $(OBJ2) $(NOINST_OBJ) $(CLEAN_ADDITION) ; do \
 		echo $(RM) $$FILE ; \
 		$(RM) $$FILE ; \
@@ -347,7 +347,7 @@ clean		:
 DFTHDER		=	$(csm_FILE_DFTHDER) $(cui_FILE_DFTHDER) $(dtd_FILE_DFTHDER) $(prt_FILE_DFTHDER) $(fmd_FILE_DFTHDER) $(smd_FILE_DFTHDER) $(def_FILE_DFTHDER) $(act_FILE_DFTHDER)
 
 # 提交安装规则
-install		:	all
+install		:	all	$(PREPRO_INSTALL)
 #- make_install
 #+ make_install_BININST
 	@if [ -n "$(BIN)" -a -n "$(BININST)" ] ; then \
