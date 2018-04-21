@@ -31,16 +31,7 @@ ESOFLAGS	=
 
 #+ make_all
 # 最终目标列表
-all	:	$(PREPRO_MAKE) $(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOINST_OBJ) $(BIN) $(BIN2)
-
-$(OBJ)	:	$(PREPRO_MAKE)
-$(OBJ2)	:	$(PREPRO_MAKE)
-$(LIB)	:	$(PREPRO_MAKE)
-$(LIB2)	:	$(PREPRO_MAKE)
-$(SQL)	:	$(PREPRO_MAKE)
-$(NOINST_OBJ)	:	$(PREPRO_MAKE)
-$(BIN)	:	$(PREPRO_MAKE)
-$(BIN2)	:	$(PREPRO_MAKE)
+all	:	$(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOINST_OBJ) $(BIN) $(BIN2)
 
 #- make_all
 
@@ -344,7 +335,7 @@ _FILE_CLEAN	=	$(c_FILE_CLEAN) $(cpp_FILE_CLEAN) $(SQC_FILE_CLEAN) $(ec_FILE_CLEA
 
 # 清理删除规则
 .PHONY:clean
-clean		:	$(PREPRO_CLEAN)
+clean		:
 	@for FILE in $(_FILE_CLEAN) $(BIN) $(BIN2) $(LIB) $(LIB2) $(OBJ) $(OBJ2) $(NOINST_OBJ) $(CLEAN_ADDITION) ; do \
 		echo $(RM) $$FILE ; \
 		$(RM) $$FILE ; \
@@ -360,7 +351,7 @@ DFTHDER		=	$(csm_FILE_DFTHDER) $(cui_FILE_DFTHDER) $(dtd_FILE_DFTHDER) $(prt_FIL
 
 # 提交安装规则
 .PHONY:install
-install		:	all $(PREPRO_INSTALL)
+install		:	all
 #- make_install
 #+ make_install_NOCLEAN_DIRINST_NOCOVER
 ifneq ($(strip $(NOCLEAN_DIRINST_NOCOVER)),)
