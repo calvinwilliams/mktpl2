@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ############################################################
-# makedir v2.0.0 - makefile模板库工具
+# makedir v2.1.0 - makefile模板库工具
 # copyright by calvin 2013
 # calvinwilliams.c@gmail.com
 #

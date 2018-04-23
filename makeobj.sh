@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ######################################################################
-# makeobj - makefile模板库工具
+# mktpl v2.1.0 - makefile模板库工具
 # copyright by calvin 2013
 # calvinwilliams.c@gmail.com
 #
