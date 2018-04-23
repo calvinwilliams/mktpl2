@@ -42,6 +42,8 @@ LFLAGS		=	$(_LFLAGS) \
 ###### 额外宏定义区
 CLEAN_ADDITION	=
 
+PREMAKE		=
+
 ###### 加载mktpl模板库
 include $(MKTPLDIR)/makeobj_$(MKTPLOS).inc
 

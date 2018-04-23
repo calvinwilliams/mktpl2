@@ -24,6 +24,24 @@ MKDIR		=	mkdir -p
 all		:	make
 #- dir_all
 
+#+ dir_prepro_all
+# make规则
+.PHONY:prepro_all
+prepro_all	:
+	@for i in $(DIROBJS) ; do \
+		if [ -d "$$i" ] ; then \
+			if [ -f "$$i/makefile$(MAKEFILE_POSTFIX)" ] ; then \
+				$(CD) $$i ; \
+				$(MAKE) -f makefile$(MAKEFILE_POSTFIX) prepro_all ; \
+				if [ $$? -ne 0 ] ; then \
+					exit 1 ; \
+				fi ; \
+				$(CD) .. ; \
+			fi ; \
+		fi ; \
+	done
+#- dir_prepro_all
+
 #+ dir_make
 # make规则
 .PHONY:make

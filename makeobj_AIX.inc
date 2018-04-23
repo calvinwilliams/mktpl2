@@ -33,14 +33,7 @@ ESOFLAGS	=	-bdynamic -brtl -qcpluscm
 # 最终目标列表
 all	:	$(OBJ) $(OBJ2) $(LIB) $(LIB2) $(SQL) $(NOINST_OBJ) $(BIN) $(BIN2)
 
-$(OBJ)	:	$(PREPRO_MAKE)
-$(OBJ2)	:	$(PREPRO_MAKE)
-$(LIB)	:	$(PREPRO_MAKE)
-$(LIB2)	:	$(PREPRO_MAKE)
-$(SQL)	:	$(PREPRO_MAKE)
-$(NOINST_OBJ)	:	$(PREPRO_MAKE)
-$(BIN)	:	$(PREPRO_MAKE)
-$(BIN2)	:	$(PREPRO_MAKE)
+prepro_all	:	$(PREPRO)
 
 #- make_all
 
