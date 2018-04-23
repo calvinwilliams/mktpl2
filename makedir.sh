@@ -31,7 +31,7 @@ while read LINE ; do
 		done
 		echo ; BLANKLING_FLAG=1
 		continue
-	elif [ x"$LINE" = x"include \$(MKTPLDIR)/makedir_\$(MKTPLOS).inc" ] ; then
+	elif [ x"$LINE" = x"include \${MKTPL2_HOME}/makedir_\${MKTPL2_OS}.inc" ] ; then
 		printf "#@ FILESYSTEM\n"
 		printf "#@ dir_all\n"
 		printf "#@ dir_make\n"

@@ -75,11 +75,11 @@ elif [ x"$OS" = x"all" ] ; then
 	OS='*'
 fi
 
-grep "include \$(MKTPLDIR)/makeobj_\$(MKTPLOS).inc" makefile > /dev/null
+grep "include \${MKTPL2_HOME}/makeobj_\${MKTPL2_OS}.inc" makefile > /dev/null
 if [ $? -eq 0 ] ; then
 	OBJ_OR_DIR="obj"
 else
-	grep "include \$(MKTPLDIR)/makedir_\$(MKTPLOS).inc" makefile > /dev/null
+	grep "include \${MKTPL2_HOME}/makedir_\${MKTPL2_OS}.inc" makefile > /dev/null
 	if [ $? -eq 0 ] ; then
 		OBJ_OR_DIR="dir"
 	fi
@@ -102,7 +102,7 @@ for FILE in `ls ${MKTPLDIR}/make${OBJ_OR_DIR}_${OS}.inc` ; do
 	while read -r LINE1 ; do
 		FIELD1=`echo $LINE1 | awk '{print $1}'`
 		FIELD2=`echo $LINE1 | awk '{print $2}'`
-		if [ x"$LINE1" = x"include \$(MKTPLDIR)/make${OBJ_OR_DIR}_\$(MKTPLOS).inc" ] ; then
+		if [ x"$LINE1" = x"include \${MKTPL2_HOME}/make${OBJ_OR_DIR}_\${MKTPL2_OS}.inc" ] ; then
 			continue
 		elif [ x"$FIELD1" = x"#@" ] ; then
 			ExpandMacro "$FILE" "$FIELD2" "makefile.${OS}"
