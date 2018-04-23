@@ -1,0 +1,6 @@
+#################################################
+# for mktpl2
+export MKTPL2_HOME=$HOME/mktpl2
+export MKTPL2_OS=`uname -a | awk '{print $1}'`
+export PATH=${MKTPL2_DIR}:$PATH
+
