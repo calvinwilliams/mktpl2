@@ -45,6 +45,6 @@ CLEAN_ADDITION	=
 PREMAKE		=
 
 ###### 加载mktpl模板库
-include ${MKTPL2_HOME}/makeobj_${MKTPL2_OS}.inc
+include $(MKTPL2_HOME)/makeobj_$(MKTPL2_OS).inc
 
 ###### 目标文件依赖关系

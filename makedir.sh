@@ -49,6 +49,6 @@ while read LINE ; do
 		echo $LINE
 		BLANKLING_FLAG=0
 	fi
-done < ${MKTPLDIR}/makedir.template >> makefile
+done < ${MKTPL2_HOME}/makedir.template >> makefile
 
 echo "" >> makefile

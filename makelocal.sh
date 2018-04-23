@@ -8,7 +8,7 @@
 # 由最小makefile文件本地化展开或指定目标系统宏展开成可独立使用makefile
 # 语法 : makelocal.sh [ OS ]
 # 备注 : OS可以是Linux、AIX等支持环境，或指定all生成所有环境makefile
-#        或不指定OS，工具自取环境变量MKTPLOS
+#        或不指定OS，工具自取环境变量MKTPL2_OS
 ############################################################
 
 EXPAND_TABLE=""
@@ -70,7 +70,7 @@ if [ ! -f makefile ] ; then
 fi
 
 if [ x"$OS" = x"" ] ; then
-	OS=${MKTPLOS}
+	OS=${MKTPL2_OS}
 elif [ x"$OS" = x"all" ] ; then
 	OS='*'
 fi
@@ -85,7 +85,7 @@ else
 	fi
 fi
 
-for FILE in `ls ${MKTPLDIR}/make${OBJ_OR_DIR}_${OS}.inc` ; do
+for FILE in `ls ${MKTPL2_HOME}/make${OBJ_OR_DIR}_${OS}.inc` ; do
 	OS=`basename $FILE | tr '_.' '  ' | awk '{print $2}'`
 	
 	EXPAND_TABLE=""

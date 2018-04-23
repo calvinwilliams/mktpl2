@@ -46,7 +46,6 @@ prepro_all	:
 # makeπÊ‘Ú
 .PHONY:make
 make	:
-	ps
 	@for i in $(DIROBJS) ; do \
 		if [ -d "$$i" ] ; then \
 			if [ -f "$$i/makefile$(MAKEFILE_POSTFIX)" ] ; then \

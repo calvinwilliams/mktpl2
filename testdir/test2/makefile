@@ -32,7 +32,7 @@ CLEAN_ADDITION	=
 #@ make_install_BININST
 #@ make_install_DFTHDERINST
 
-include $(MKTPLDIR)/makeobj_$(MKTPLOS).inc
+include $(MKTPL2_HOME)/makeobj_$(MKTPL2_OS).inc
 
 ###### 目标文件依赖关系
 test2		:	$(SQC_FILE_o)

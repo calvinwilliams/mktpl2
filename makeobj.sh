@@ -152,7 +152,7 @@ while read -r LINE ; do
 		echo $LINE
 		BLANKLING_FLAG=0
 	fi
-done < ${MKTPLDIR}/makeobj.template >> makefile
+done < ${MKTPL2_HOME}/makeobj.template >> makefile
 unset IFS
 
 if [ x"$TARGET" != "" ] ; then
@@ -172,5 +172,5 @@ fi
 
 echo "" >> makefile
 
-cp ${MKTPLDIR}/makeinstall.template makeinstall
+cp ${MKTPL2_HOME}/makeinstall.template makeinstall
 
