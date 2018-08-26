@@ -130,7 +130,7 @@ while read -r LINE ; do
 		continue
 	elif [ x"$FIELD1" = x"NOINST_OBJ" ] ; then
 		continue
-	elif [ x"$LINE" = x"include \${MKTPL2_HOME}/makeobj_\${MKTPL2_OS}.inc" ] ; then
+	elif [ x"$LINE" = x"include \$(MKTPL2_HOME)/makeobj_\$(MKTPL2_OS).inc" ] ; then
 		printf "#@ make_all\n"
 		printf "#@ make_clean\n"
 		printf "#@ make_install\n"
